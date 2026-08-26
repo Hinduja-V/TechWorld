@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechWorld | Power Your World with Better Technology</title>
+    <meta name="description" content="Discover smartphones, laptops, audio devices, wearables and accessories designed for the way you live.">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="/src/index.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/animations.css">
+</head>
+<body class="bg-primary-bg text-text-main antialiased selection:bg-accent-primary selection:text-primary-bg">
+
+    <!-- Header will be injected by app.js -->
+
+    <!-- Hero Section -->
+    <section class="relative min-h-[90vh] flex items-center justify-center overflow-hidden pt-20">
+        <!-- Background Gradients -->
+        <div class="absolute inset-0 bg-primary-bg z-0"></div>
+        <div class="absolute top-0 left-0 w-full h-full overflow-hidden z-0 pointer-events-none">
+            <div class="absolute top-[-10%] right-[-5%] w-[600px] h-[600px] rounded-full bg-accent-primary/20 blur-[120px]"></div>
+            <div class="absolute bottom-[-10%] left-[-10%] w-[500px] h-[500px] rounded-full bg-accent-secondary/20 blur-[120px]"></div>
+        </div>
+        
+        <div class="container mx-auto px-4 relative z-10 flex flex-col items-center text-center">
+            <div class="inline-block border border-border-subtle bg-white/5 backdrop-blur-md px-4 py-1.5 rounded-full text-xs font-bold text-accent-primary  uppercase mb-8 fade-in-up">
+                New Collection 2026
+            </div>
+            <h1 class="text-3xl md:text-3xl lg:text-3xl font-bold mb-6  fade-in-up stagger-1 text-transparent bg-clip-text bg-gradient-to-br from-gray-900 via-gray-800 to-gray-400">
+                The Future of Tech.<br />Available Today.
+            </h1>
+            <p class="text-lg md:text-xl text-text-secondary max-w-2xl mb-12 fade-in-up stagger-2 font-medium">
+                Experience unparalleled innovation with our curated selection of premium smartphones, audio, and intelligent wearables.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-5 fade-in-up stagger-3 w-full sm:w-auto">
+                <a href="products.html" class="bg-text-main text-primary-bg px-8 py-4 rounded-full font-bold hover:scale-105 transition-transform duration-300 shadow-[0_0_20px_rgba(0,0,0,0.15)]">
+                    Explore Collection
+                </a>
+                <a href="#deals" class="bg-card-bg/50 backdrop-blur border border-border-subtle text-text-main px-8 py-4 rounded-full font-bold hover:bg-card-bg hover:border-accent-primary transition-all duration-300">
+                    View Offers
+                </a>
+            </div>
+        </div>
+        
+        <!-- Overlapping Image at bottom -->
+        <div class="absolute bottom-[-10%] left-1/2 transform -translate-x-1/2 w-full max-w-5xl z-10 pointer-events-none fade-in-up stagger-4 opacity-50">
+            <!-- Simulated large device showcase -->
+            <div class="w-full h-[400px] bg-gradient-to-t from-primary-bg to-transparent absolute bottom-0 left-0 z-20"></div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="py-24 container mx-auto px-4 relative z-20">
+        <div class="flex flex-col md:flex-row justify-between items-end mb-12 border-b border-border-subtle pb-6">
+            <div>
+                <h2 class="text-3xl md:text-4xl font-bold text-text-main mb-2 ">Ecosystem</h2>
+                <p class="text-text-secondary font-medium">Curated precision instruments</p>
+            </div>
+            <a href="products.html" class="text-accent-primary font-bold hover:text-accent-secondary transition mt-4 md:mt-0 flex items-center gap-2 group">
+                View All Categories <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+            </a>
+        </div>
+        
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6">
+            <a href="products.html?category=Smartphones" class="group bg-card-bg/50 backdrop-blur-md rounded-2xl p-8 flex flex-col items-center text-center border border-border-subtle transition-all duration-300 hover:bg-card-bg hover:border-accent-primary hover:shadow-[0_0_30px_rgba(37,99,235,0.15)] hover:-translate-y-2">
+                <div class="w-16 h-16 rounded-2xl bg-primary-bg border border-border-subtle text-accent-primary flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform shadow-inner">
+                    <i class="fa-solid fa-mobile-screen-button"></i>
+                </div>
+                <h3 class="font-bold text-text-main ">Smartphones</h3>
+            </a>
+            
+            <a href="products.html?category=Laptops & Tablets" class="group bg-card-bg/50 backdrop-blur-md rounded-2xl p-8 flex flex-col items-center text-center border border-border-subtle transition-all duration-300 hover:bg-card-bg hover:border-accent-primary hover:shadow-[0_0_30px_rgba(37,99,235,0.15)] hover:-translate-y-2">
+                <div class="w-16 h-16 rounded-2xl bg-primary-bg border border-border-subtle text-accent-primary flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform shadow-inner">
+                    <i class="fa-solid fa-laptop"></i>
+                </div>
+                <h3 class="font-bold text-text-main ">Laptops</h3>
+            </a>
+            
+            <a href="products.html?category=Audio & Wearables" class="group bg-card-bg/50 backdrop-blur-md rounded-2xl p-8 flex flex-col items-center text-center border border-border-subtle transition-all duration-300 hover:bg-card-bg hover:border-accent-primary hover:shadow-[0_0_30px_rgba(37,99,235,0.15)] hover:-translate-y-2">
+                <div class="w-16 h-16 rounded-2xl bg-primary-bg border border-border-subtle text-accent-primary flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform shadow-inner">
+                    <i class="fa-solid fa-headphones"></i>
+                </div>
+                <h3 class="font-bold text-text-main ">Audio</h3>
+            </a>
+            
+            <a href="products.html?category=Audio & Wearables" class="group bg-card-bg/50 backdrop-blur-md rounded-2xl p-8 flex flex-col items-center text-center border border-border-subtle transition-all duration-300 hover:bg-card-bg hover:border-accent-primary hover:shadow-[0_0_30px_rgba(37,99,235,0.15)] hover:-translate-y-2">
+                <div class="w-16 h-16 rounded-2xl bg-primary-bg border border-border-subtle text-accent-primary flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform shadow-inner">
+                    <i class="fa-solid fa-stopwatch"></i>
+                </div>
+                <h3 class="font-bold text-text-main ">Wearables</h3>
+            </a>
+            
+            <a href="products.html?category=Accessories" class="group bg-card-bg/50 backdrop-blur-md rounded-2xl p-8 flex flex-col items-center text-center border border-border-subtle transition-all duration-300 hover:bg-card-bg hover:border-accent-primary hover:shadow-[0_0_30px_rgba(37,99,235,0.15)] hover:-translate-y-2">
+                <div class="w-16 h-16 rounded-2xl bg-primary-bg border border-border-subtle text-accent-primary flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform shadow-inner">
+                    <i class="fa-solid fa-plug"></i>
+                </div>
+                <h3 class="font-bold text-text-main ">Accessories</h3>
+            </a>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="py-24 bg-secondary-bg/30 relative">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12 border-b border-border-subtle pb-6">
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-bold text-text-main mb-2 ">Featured Engineering</h2>
+                    <p class="text-text-secondary font-medium">Handpicked premium tech for you</p>
+                </div>
+                <a href="products.html" class="text-accent-primary font-bold hover:text-accent-secondary transition mt-4 md:mt-0 flex items-center gap-2 group">
+                    Shop All <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                </a>
+            </div>
+            
+            <div id="featured-products-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Products dynamically injected here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Promotional Banner -->
+    <section id="deals" class="py-24 container mx-auto px-4">
+        <div class="bg-card-bg relative rounded-3xl overflow-hidden shadow-2xl border border-border-subtle group">
+            <!-- Glowing background effect -->
+            <div class="absolute inset-0 bg-gradient-to-br from-accent-primary/10 to-accent-secondary/10 opacity-50 group-hover:opacity-100 transition-opacity duration-700"></div>
+            <div class="absolute -right-20 -top-20 w-96 h-96 bg-accent-primary/20 blur-[100px] rounded-full"></div>
+            
+            <div class="flex flex-col lg:flex-row relative z-10">
+                <div class="lg:w-1/2 p-10 lg:p-16 flex flex-col justify-center">
+                    <div class="inline-block border border-accent-primary/50 text-accent-primary bg-accent-primary/10 px-4 py-1.5 rounded-full text-xs font-bold  uppercase mb-6 w-max shadow-[0_0_15px_rgba(37,99,235,0.2)]">Limited Time Offer</div>
+                    <h2 class="text-4xl md:text-5xl font-bold text-text-main mb-6 leading-tight ">Save up to 25% on Audio & Wearables</h2>
+                    <p class="text-text-secondary mb-10 text-lg font-medium leading-relaxed">Upgrade your sound and track your fitness with our premium selection. High-fidelity audio meets intelligent health tracking.</p>
+                    
+                    <div class="flex gap-4 mb-10">
+                        <div class="bg-primary-bg/80 backdrop-blur-md rounded-xl p-4 text-center min-w-[80px] border border-border-subtle shadow-inner">
+                            <div class="text-2xl font-bold text-text-main">02</div>
+                            <div class="text-xs text-text-secondary font-bold uppercase r mt-1">Days</div>
+                        </div>
+                        <div class="bg-primary-bg/80 backdrop-blur-md rounded-xl p-4 text-center min-w-[80px] border border-border-subtle shadow-inner">
+                            <div class="text-2xl font-bold text-text-main">14</div>
+                            <div class="text-xs text-text-secondary font-bold uppercase r mt-1">Hours</div>
+                        </div>
+                        <div class="bg-primary-bg/80 backdrop-blur-md rounded-xl p-4 text-center min-w-[80px] border border-border-subtle shadow-inner">
+                            <div class="text-2xl font-bold text-text-main">45</div>
+                            <div class="text-xs text-text-secondary font-bold uppercase r mt-1">Mins</div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <a href="products.html?category=Audio & Wearables" class="inline-flex items-center gap-2 bg-text-main text-primary-bg px-8 py-4 rounded-full font-bold hover:scale-105 transition-transform shadow-[0_0_20px_rgba(0,0,0,0.1)]">
+                            Claim Offer <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="lg:w-1/2 relative min-h-[300px] overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=800&auto=format&fit=crop" alt="Headphones Deals" class="absolute inset-0 w-full h-full object-cover opacity-80 mix-blend-luminosity group-hover:mix-blend-normal group-hover:scale-105 transition-all duration-1000">
+                    <div class="absolute inset-0 bg-gradient-to-t from-card-bg via-transparent to-transparent lg:bg-gradient-to-l"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="py-24 bg-primary-bg">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-text-main mb-4 ">The TechWorld Standard</h2>
+                <p class="text-text-secondary max-w-2xl mx-auto font-medium">Uncompromising quality and service in every interaction.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center p-8 bg-card-bg/50 backdrop-blur border border-border-subtle rounded-2xl hover:bg-card-bg transition-colors duration-300">
+                    <div class="w-16 h-16 mx-auto bg-primary-bg border border-border-subtle text-accent-primary rounded-2xl flex items-center justify-center text-2xl mb-6 shadow-inner">
+                        <i class="fa-solid fa-truck-fast"></i>
+                    </div>
+                    <h3 class="font-bold text-text-main text-lg mb-3">Priority Delivery</h3>
+                    <p class="text-text-secondary text-sm leading-relaxed">Complimentary express logistics on all premium orders.</p>
+                </div>
+                
+                <div class="text-center p-8 bg-card-bg/50 backdrop-blur border border-border-subtle rounded-2xl hover:bg-card-bg transition-colors duration-300">
+                    <div class="w-16 h-16 mx-auto bg-primary-bg border border-border-subtle text-accent-primary rounded-2xl flex items-center justify-center text-2xl mb-6 shadow-inner">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <h3 class="font-bold text-text-main text-lg mb-3">Military-Grade Security</h3>
+                    <p class="text-text-secondary text-sm leading-relaxed">End-to-end 256-bit encryption for all transactions.</p>
+                </div>
+                
+                <div class="text-center p-8 bg-card-bg/50 backdrop-blur border border-border-subtle rounded-2xl hover:bg-card-bg transition-colors duration-300">
+                    <div class="w-16 h-16 mx-auto bg-primary-bg border border-border-subtle text-accent-primary rounded-2xl flex items-center justify-center text-2xl mb-6 shadow-inner">
+                        <i class="fa-regular fa-credit-card"></i>
+                    </div>
+                    <h3 class="font-bold text-text-main text-lg mb-3">Frictionless Payment</h3>
+                    <p class="text-text-secondary text-sm leading-relaxed">Seamless integration with global payment providers.</p>
+                </div>
+                
+                <div class="text-center p-8 bg-card-bg/50 backdrop-blur border border-border-subtle rounded-2xl hover:bg-card-bg transition-colors duration-300">
+                    <div class="w-16 h-16 mx-auto bg-primary-bg border border-border-subtle text-accent-primary rounded-2xl flex items-center justify-center text-2xl mb-6 shadow-inner">
+                        <i class="fa-solid fa-medal"></i>
+                    </div>
+                    <h3 class="font-bold text-text-main text-lg mb-3">Certified Authentic</h3>
+                    <p class="text-text-secondary text-sm leading-relaxed">100% genuine hardware with international warranty.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Customer Reviews -->
+    <section class="py-24 bg-secondary-bg/30">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-text-main mb-16 text-center ">Client Testimonials</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Review 1 -->
+                <div class="bg-card-bg p-8 rounded-2xl shadow-xl border border-border-subtle flex flex-col hover:-translate-y-1 transition-transform">
+                    <div class="flex text-accent-primary mb-5 text-sm drop-shadow-[0_0_2px_rgba(37,99,235,0.8)] gap-1">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <h4 class="font-bold text-text-main mb-3 text-lg">"Flawless Experience"</h4>
+                    <p class="text-text-secondary text-sm mb-6 leading-relaxed flex-1">"Upgraded my workstation through TechWorld. The logistics were precise and the packaging was immaculate. Highly recommended."</p>
+                    <div class="flex items-center gap-3 pt-6 border-t border-border-subtle">
+                        <div class="w-10 h-10 rounded-full bg-primary-bg border border-border-subtle text-text-main flex items-center justify-center text-xs font-bold">AS</div>
+                        <div>
+                            <div class="text-sm font-bold text-text-main">Arjun Sharma</div>
+                            <div class="text-xs text-accent-primary font-medium  uppercase mt-0.5">Verified Buyer</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Review 2 -->
+                <div class="bg-card-bg p-8 rounded-2xl shadow-xl border border-border-subtle flex flex-col hover:-translate-y-1 transition-transform">
+                    <div class="flex text-accent-primary mb-5 text-sm drop-shadow-[0_0_2px_rgba(37,99,235,0.8)] gap-1">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+                    </div>
+                    <h4 class="font-bold text-text-main mb-3 text-lg">"Unrivaled Noise Cancellation"</h4>
+                    <p class="text-text-secondary text-sm mb-6 leading-relaxed flex-1">"The new audio gear is a revelation. The platform made it incredibly easy to compare specifications before purchasing."</p>
+                    <div class="flex items-center gap-3 pt-6 border-t border-border-subtle">
+                        <div class="w-10 h-10 rounded-full bg-primary-bg border border-border-subtle text-text-main flex items-center justify-center text-xs font-bold">NP</div>
+                        <div>
+                            <div class="text-sm font-bold text-text-main">Neha Patel</div>
+                            <div class="text-xs text-accent-primary font-medium  uppercase mt-0.5">Verified Buyer</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Review 3 -->
+                <div class="bg-card-bg p-8 rounded-2xl shadow-xl border border-border-subtle flex flex-col hover:-translate-y-1 transition-transform">
+                    <div class="flex text-accent-primary mb-5 text-sm drop-shadow-[0_0_2px_rgba(37,99,235,0.8)] gap-1">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <h4 class="font-bold text-text-main mb-3 text-lg">"Built for Creatives"</h4>
+                    <p class="text-text-secondary text-sm mb-6 leading-relaxed flex-1">"The computing power is staggering. TechWorld's interface is arguably the best e-commerce experience I've encountered."</p>
+                    <div class="flex items-center gap-3 pt-6 border-t border-border-subtle">
+                        <div class="w-10 h-10 rounded-full bg-primary-bg border border-border-subtle text-text-main flex items-center justify-center text-xs font-bold">RK</div>
+                        <div>
+                            <div class="text-sm font-bold text-text-main">Rahul Kumar</div>
+                            <div class="text-xs text-accent-primary font-medium  uppercase mt-0.5">Verified Buyer</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="bg-primary-bg py-24 relative overflow-hidden border-b border-border-subtle">
+        <div class="absolute inset-0 bg-accent-primary/5"></div>
+        <div class="container mx-auto px-4 text-center max-w-2xl relative z-10">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6 text-text-main ">Stay Ahead of the Curve</h2>
+            <p class="text-text-secondary mb-10 font-medium">Join our exclusive network. Receive curated insights and priority access to new hardware releases.</p>
+            
+            <form id="newsletter-form" class="flex flex-col sm:flex-row gap-4 max-w-xl mx-auto">
+                <input type="email" required placeholder="Enter your email address" class="flex-1 bg-secondary-bg/80 backdrop-blur border border-border-subtle px-6 py-4 rounded-xl text-text-main focus:outline-none focus:border-accent-primary transition placeholder-text-secondary/50 shadow-inner">
+                <button type="submit" class="bg-text-main text-primary-bg hover:scale-105 transition-transform px-8 py-4 rounded-xl font-bold whitespace-nowrap shadow-[0_0_15px_rgba(0,0,0,0.1)]">Subscribe</button>
+            </form>
+            <p id="newsletter-success" class="text-accent-primary mt-6 text-sm font-bold hidden  uppercase">Successfully Subscribed</p>
+        </div>
+    </section>
+
+    <!-- Footer will be injected by app.js -->
+
+    <!-- Scripts -->
+    <script type="module">
+        import { initApp, createProductCard, showToast } from '/js/app.js';
+        import products from '/js/products.js';
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            initApp();
+            
+            // Render featured products (first 8)
+            const featuredContainer = document.getElementById('featured-products-container');
+            const featuredProducts = products.slice(0, 8);
+            
+            featuredProducts.forEach(product => {
+                featuredContainer.appendChild(createProductCard(product));
+            });
+            
+            // Newsletter form
+            const form = document.getElementById('newsletter-form');
+            if (form) {
+                form.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    form.querySelector('input').value = '';
+                    document.getElementById('newsletter-success').classList.remove('hidden');
+                    showToast('Successfully subscribed to newsletter!', 'success');
+                    setTimeout(() => {
+                        document.getElementById('newsletter-success').classList.add('hidden');
+                    }, 4000);
+                });
+            }
+        });
+    </script>
+</body>
+</html>
+

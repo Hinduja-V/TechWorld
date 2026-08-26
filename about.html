@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | TechWorld</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/src/index.css">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="bg-primary-bg text-text-main antialiased selection:bg-accent-primary selection:text-primary-bg flex flex-col min-h-screen">
+
+    <main class="flex-1">
+        <!-- Hero -->
+        <section class="bg-secondary-bg py-24 relative overflow-hidden border-b border-border-subtle mt-10 md:mt-0">
+            <div class="absolute inset-0 opacity-10">
+                <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1920&auto=format&fit=crop" class="w-full h-full object-cover filter contrast-125 grayscale mix-blend-overlay">
+                <div class="absolute inset-0 bg-gradient-to-r from-primary-bg via-primary-bg/80 to-transparent"></div>
+            </div>
+            <div class="container mx-auto px-4 relative z-10">
+                <div class="max-w-2xl">
+                    <h1 class="text-3xl md:text-2xl font-bold mb-6  text-text-main">About <span class="text-accent-primary">TechWorld</span></h1>
+                    <p class="text-xl text-text-secondary leading-relaxed font-medium">We are passionate about connecting people with the technology that powers their lives, providing premium electronics with unmatched service.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Story -->
+        <section class="py-24 bg-primary-bg">
+            <div class="container mx-auto px-4 flex flex-col md:flex-row items-center gap-16">
+                <div class="w-full md:w-1/2 relative group">
+                    <div class="absolute inset-0 bg-accent-primary/20 blur-[50px] rounded-full group-hover:bg-accent-primary/30 transition-colors duration-500"></div>
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=800&auto=format&fit=crop" class="rounded-3xl shadow-xl w-full relative z-10 filter contrast-125 border border-border-subtle grayscale hover:grayscale-0 transition-all duration-700">
+                </div>
+                <div class="w-full md:w-1/2">
+                    <div class="text-xs font-bold text-text-secondary uppercase  mb-3 flex items-center gap-2">
+                        <span class="w-12 h-[2px] bg-accent-primary"></span>
+                        Origin
+                    </div>
+                    <h2 class="text-2xl font-bold text-text-main mb-8 ">Our Story</h2>
+                    <div class="space-y-6 text-text-secondary leading-relaxed font-medium text-lg">
+                        <p>Founded with a vision to make premium technology accessible to everyone, TechWorld has grown from a small specialized boutique to a premier destination for electronics.</p>
+                        <p>We believe that the right piece of technology can transform how you work, play, and connect with the world. That's why we carefully curate our selection to feature only the best products from trusted global brands.</p>
+                        <p>Our commitment goes beyond just selling devices. We aim to educate, support, and inspire our community to get the most out of their tech investments.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Mission & Values -->
+        <section id="mission" class="py-24 bg-secondary-bg/30 border-t border-border-subtle relative overflow-hidden">
+            <div class="absolute -top-40 -right-40 w-96 h-96 bg-accent-primary/5 blur-[100px] rounded-full pointer-events-none"></div>
+            <div class="container mx-auto px-4 relative z-10">
+                <div class="text-center max-w-2xl mx-auto mb-16">
+                    <h2 class="text-2xl font-bold text-text-main mb-4 ">Our Mission & Values</h2>
+                    <p class="text-text-secondary font-medium text-lg">These core principles guide everything we do, from selecting our inventory to supporting our customers.</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-card-bg p-10 rounded-3xl shadow-xl border border-border-subtle text-center group hover:border-accent-primary/50 transition-colors">
+                        <div class="w-20 h-20 bg-primary-bg text-accent-primary border border-border-subtle shadow-inner rounded-full flex items-center justify-center text-3xl mx-auto mb-8 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-gem"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-text-main mb-4 ">Quality First</h3>
+                        <p class="text-text-secondary font-medium leading-relaxed">We never compromise on quality. Every product we sell is 100% genuine and meets strict performance standards.</p>
+                    </div>
+                    
+                    <div class="bg-card-bg p-10 rounded-3xl shadow-xl border border-border-subtle text-center group hover:border-accent-primary/50 transition-colors">
+                        <div class="w-20 h-20 bg-primary-bg text-accent-primary border border-border-subtle shadow-inner rounded-full flex items-center justify-center text-3xl mx-auto mb-8 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-handshake"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-text-main mb-4 ">Customer Focus</h3>
+                        <p class="text-text-secondary font-medium leading-relaxed">Your satisfaction is our priority. Our dedicated support team is always ready to help you before and after purchase.</p>
+                    </div>
+                    
+                    <div class="bg-card-bg p-10 rounded-3xl shadow-xl border border-border-subtle text-center group hover:border-accent-primary/50 transition-colors">
+                        <div class="w-20 h-20 bg-primary-bg text-accent-primary border border-border-subtle shadow-inner rounded-full flex items-center justify-center text-3xl mx-auto mb-8 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-leaf"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-text-main mb-4 ">Sustainability</h3>
+                        <p class="text-text-secondary font-medium leading-relaxed">We are committed to reducing our environmental impact through eco-friendly packaging and supporting sustainable brands.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script type="module">
+        import { initApp } from '/js/app.js';
+        document.addEventListener('DOMContentLoaded', initApp);
+    </script>
+</body>
+</html>

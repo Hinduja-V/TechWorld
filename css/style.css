@@ -1,0 +1,85 @@
+/* css/style.css */
+@import "tailwindcss";
+
+@theme {
+  --color-primary-bg: #F9FAFB;
+  --color-secondary-bg: #F3F4F6;
+  --color-card-bg: #FFFFFF;
+  --color-elevated-bg: #FFFFFF;
+  
+  --color-accent-primary: #2563EB;
+  --color-accent-secondary: #4F46E5;
+  --color-accent-neon: #3B82F6;
+  
+  --color-text-main: #111827;
+  --color-text-secondary: #4B5563;
+
+  --color-border-subtle: rgba(0, 0, 0, 0.08);
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    color: var(--color-text-main);
+    background-color: var(--color-primary-bg);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+}
+::-webkit-scrollbar-track {
+    background: var(--color-primary-bg); 
+}
+::-webkit-scrollbar-thumb {
+    background: var(--color-elevated-bg); 
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-text-secondary); 
+}
+
+/* Base styles for interactive elements */
+button, a {
+    outline: none;
+}
+button:focus-visible, a:focus-visible {
+    box-shadow: 0 0 0 2px var(--color-accent-primary);
+}
+
+/* Product Card specific */
+.line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;  
+    overflow: hidden;
+}
+
+/* Hide input number arrows */
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+/* Loader */
+.loader {
+    border: 3px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 3px solid #00B4D8;
+    width: 24px;
+    height: 24px;
+    -webkit-animation: spin 1s linear infinite; /* Safari */
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

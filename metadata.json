@@ -1,0 +1,6 @@
+{
+  "name": "TechWorld",
+  "description": "Electronics and gadgets e-commerce website",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

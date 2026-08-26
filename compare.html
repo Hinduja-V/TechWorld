@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compare Products | TechWorld</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/src/index.css">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="bg-primary-bg text-text-main antialiased selection:bg-accent-primary selection:text-primary-bg flex flex-col min-h-screen">
+
+    <main class="flex-1 py-12">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-end mb-8 mt-10">
+                <h1 class="text-3xl md:text-2xl font-bold text-text-main ">Compare Products</h1>
+                <button id="clear-compare" class="text-accent-primary hover:text-accent-secondary font-bold uppercase  text-xs transition-colors hidden">Clear All</button>
+            </div>
+            
+            <div id="compare-container" class="bg-card-bg rounded-3xl shadow-xl border border-border-subtle overflow-x-auto pb-4 custom-scrollbar">
+                <!-- Injected via JS -->
+            </div>
+            
+            <div id="compare-empty" class="hidden w-full bg-card-bg p-16 rounded-3xl shadow-xl border border-border-subtle flex flex-col items-center text-center">
+                <div class="w-32 h-32 bg-primary-bg rounded-full border border-border-subtle flex items-center justify-center text-accent-primary text-3xl mb-6 shadow-inner drop-shadow-[0_0_15px_rgba(37,99,235,0.2)]">
+                    <i class="fa-solid fa-code-compare"></i>
+                </div>
+                <h2 class="text-2xl font-bold text-text-main mb-3 ">No products to compare</h2>
+                <p class="text-text-secondary mb-10 max-w-md font-medium">Add products to your comparison list to see their features side by side.</p>
+                <a href="products.html" class="bg-text-main text-primary-bg px-8 py-4 rounded-full font-bold hover:scale-105 transition-transform shadow-[0_0_15px_rgba(0,0,0,0.1)]">Browse Products</a>
+            </div>
+        </div>
+    </main>
+
+    <script type="module">
+        import { initApp, getCompareList, saveCompareList, addToCart, formatPrice, showToast } from '/js/app.js';
+
+        document.addEventListener('DOMContentLoaded', () => {
+            initApp();
+            
+            const renderCompare = () => {
+                const list = getCompareList();
+                const container = document.getElementById('compare-container');
+                const emptyState = document.getElementById('compare-empty');
+                const clearBtn = document.getElementById('clear-compare');
+                
+                if (list.length === 0) {
+                    container.classList.add('hidden');
+                    clearBtn.classList.add('hidden');
+                    emptyState.classList.remove('hidden');
+                    emptyState.classList.add('flex');
+                    return;
+                }
+                
+                container.classList.remove('hidden');
+                clearBtn.classList.remove('hidden');
+                emptyState.classList.add('hidden');
+                emptyState.classList.remove('flex');
+                
+                // Get all possible specs
+                const allSpecs = new Set();
+                list.forEach(p => {
+                    Object.keys(p.specifications).forEach(k => allSpecs.add(k));
+                });
+                
+                let html = `
+                    <table class="w-full text-left min-w-[800px]">
+                        <thead>
+                            <tr>
+                                <th class="p-8 border-r border-b border-border-subtle bg-secondary-bg/50 w-[200px] align-top">
+                                    <div class="font-bold text-text-main text-xl mb-3 ">Product Features</div>
+                                    <p class="text-xs text-text-secondary font-medium leading-relaxed">Compare up to 4 products side by side to find the perfect match.</p>
+                                </th>
+                                ${list.map((p, i) => `
+                                    <th class="p-8 border-b border-r border-border-subtle last:border-r-0 w-[250px] align-top bg-card-bg relative group">
+                                        <button class="remove-btn absolute top-4 right-4 w-8 h-8 bg-primary-bg border border-border-subtle rounded-full flex items-center justify-center text-text-secondary hover:text-red-500 hover:border-red-500/50 transition-colors shadow-inner" data-index="${i}">
+                                            <i class="fa-solid fa-xmark"></i>
+                                        </button>
+                                        <div class="h-48 flex items-center justify-center mb-6 p-4 bg-primary-bg rounded-2xl border border-border-subtle shadow-inner">
+                                            <img src="${p.image}" alt="${p.name}" class="max-h-full max-w-full object-contain filter contrast-125 drop-shadow-lg group-hover:scale-105 transition-transform duration-500">
+                                        </div>
+                                        <div class="text-xs text-accent-primary font-bold uppercase  mb-2">${p.brand}</div>
+                                        <h3 class="font-bold text-text-main leading-snug mb-3 h-12 overflow-hidden"><a href="product-details.html?id=${p.id}" class="hover:text-accent-primary transition-colors">${p.name}</a></h3>
+                                        <div class="text-2xl font-bold text-text-main mb-5 ">${formatPrice(p.price)}</div>
+                                        <button class="add-cart-btn w-full bg-secondary-bg border border-border-subtle text-text-main py-3 rounded-xl font-bold hover:bg-border-subtle hover:text-accent-primary transition-all text-sm uppercase " data-index="${i}">Add to Cart</button>
+                                    </th>
+                                `).join('')}
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Rating -->
+                            <tr>
+                                <td class="p-5 border-r border-b border-border-subtle bg-secondary-bg/30 font-bold text-text-secondary uppercase  text-xs">Rating</td>
+                                ${list.map(p => `
+                                    <td class="p-5 border-b border-r border-border-subtle last:border-r-0">
+                                        <div class="flex items-center gap-2 text-accent-secondary">
+                                            <span class="font-bold text-text-main">${p.rating}</span>
+                                            <i class="fa-solid fa-star text-sm"></i>
+                                            <span class="text-text-secondary text-xs ml-1 font-medium">(${p.reviewCount})</span>
+                                        </div>
+                                    </td>
+                                `).join('')}
+                            </tr>
+                `;
+                
+                // Add spec rows
+                Array.from(allSpecs).forEach(spec => {
+                    html += `
+                        <tr>
+                            <td class="p-5 border-r border-b border-border-subtle bg-secondary-bg/30 font-bold text-text-secondary uppercase  text-xs">${spec}</td>
+                            ${list.map(p => `
+                                <td class="p-5 border-b border-r border-border-subtle last:border-r-0 text-text-main font-medium">
+                                    ${p.specifications[spec] || '<span class="text-text-secondary/50 font-normal">N/A</span>'}
+                                </td>
+                            `).join('')}
+                        </tr>
+                    `;
+                });
+                
+                html += `</tbody></table>`;
+                container.innerHTML = html;
+                
+                // Event listeners
+                document.querySelectorAll('.remove-btn').forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        const index = e.currentTarget.dataset.index;
+                        list.splice(index, 1);
+                        saveCompareList(list);
+                        renderCompare();
+                        showToast('Removed from compare', 'info');
+                    });
+                });
+                
+                document.querySelectorAll('.add-cart-btn').forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        const index = e.currentTarget.dataset.index;
+                        addToCart(list[index]);
+                    });
+                });
+            };
+            
+            document.getElementById('clear-compare').addEventListener('click', () => {
+                saveCompareList([]);
+                renderCompare();
+            });
+            
+            renderCompare();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop | TechWorld</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/src/index.css">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="bg-primary-bg text-text-main antialiased selection:bg-accent-primary selection:text-primary-bg flex flex-col min-h-screen">
+
+    <!-- Main Content -->
+    <main class="flex-1 py-8">
+        <div class="container mx-auto px-4">
+            <!-- Breadcrumbs -->
+            <div class="text-sm text-text-secondary mb-6 mt-20">
+                <a href="index.html" class="hover:text-accent-primary transition">Home</a> <i class="fa-solid fa-chevron-right text-xs mx-2"></i> <span class="text-text-main font-medium" id="breadcrumb-current">Shop All</span>
+            </div>
+
+            <div class="flex flex-col lg:flex-row gap-8">
+                <!-- Sidebar Filters -->
+                <aside class="w-full lg:w-1/4">
+                    <div class="bg-card-bg rounded-2xl shadow-xl border border-border-subtle p-6 sticky top-28">
+                        <div class="flex justify-between items-center mb-6">
+                            <h2 class="font-bold text-lg text-text-main ">Filters</h2>
+                            <button id="clear-filters-btn" class="text-sm text-accent-primary hover:text-accent-secondary transition">Clear All</button>
+                        </div>
+
+                        <!-- Category Filter -->
+                        <div class="mb-6">
+                            <h3 class="font-bold text-text-secondary mb-3 text-xs uppercase ">Category</h3>
+                            <div class="space-y-3" id="filter-category">
+                                <!-- Categories injected here -->
+                            </div>
+                        </div>
+                        
+                        <div class="border-t border-border-subtle mb-6"></div>
+
+                        <!-- Brand Filter -->
+                        <div class="mb-6">
+                            <h3 class="font-bold text-text-secondary mb-3 text-xs uppercase ">Brand</h3>
+                            <div class="space-y-3" id="filter-brand">
+                                <!-- Brands injected here -->
+                            </div>
+                        </div>
+
+                        <div class="border-t border-border-subtle mb-6"></div>
+
+                        <!-- Price Range -->
+                        <div class="mb-6">
+                            <h3 class="font-bold text-text-secondary mb-3 text-xs uppercase ">Price Range</h3>
+                            <div class="flex gap-3 items-center">
+                                <input type="number" id="min-price" placeholder="Min" class="w-full bg-secondary-bg border border-border-subtle text-text-main rounded-lg px-3 py-2 text-sm focus:border-accent-primary outline-none transition placeholder-text-secondary/50">
+                                <span class="text-text-secondary">-</span>
+                                <input type="number" id="max-price" placeholder="Max" class="w-full bg-secondary-bg border border-border-subtle text-text-main rounded-lg px-3 py-2 text-sm focus:border-accent-primary outline-none transition placeholder-text-secondary/50">
+                            </div>
+                            <button id="apply-price-btn" class="w-full mt-4 bg-secondary-bg hover:bg-border-subtle text-text-main border border-border-subtle py-2 rounded-lg text-sm font-bold transition-all shadow-inner">Apply Price</button>
+                        </div>
+                    </div>
+                </aside>
+
+                <!-- Product Grid -->
+                <div class="w-full lg:w-3/4">
+                    <!-- Top Bar -->
+                    <div class="bg-card-bg rounded-2xl shadow-xl border border-border-subtle p-5 mb-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+                        <div class="text-text-secondary text-sm">Showing <span id="results-count" class="font-bold text-text-main text-base">0</span> results</div>
+                        
+                        <div class="flex items-center gap-4">
+                            <div class="flex items-center gap-3">
+                                <label for="sort-select" class="text-sm font-medium text-text-secondary uppercase r text-xs">Sort by:</label>
+                                <select id="sort-select" class="bg-secondary-bg border border-border-subtle text-text-main rounded-lg py-2 px-4 text-sm focus:outline-none focus:border-accent-primary shadow-inner appearance-none cursor-pointer">
+                                    <option value="featured">Featured</option>
+                                    <option value="price-low">Price: Low to High</option>
+                                    <option value="price-high">Price: High to Low</option>
+                                    <option value="rating">Highest Rated</option>
+                                    <option value="discount">Biggest Discount</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Products -->
+                    <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- Products injected here -->
+                    </div>
+
+                    <!-- No Results -->
+                    <div id="no-results" class="hidden bg-card-bg rounded-2xl shadow-xl border border-border-subtle p-16 text-center">
+                        <div class="text-2xl text-text-secondary/50 mb-6"><i class="fa-solid fa-box-open"></i></div>
+                        <h3 class="text-2xl font-bold text-text-main mb-3 ">No products found</h3>
+                        <p class="text-text-secondary mb-8 max-w-md mx-auto">We couldn't find any items matching your current filters. Try adjusting your criteria.</p>
+                        <button id="reset-search-btn" class="bg-text-main text-primary-bg px-8 py-3 rounded-full font-bold hover:scale-105 transition-transform shadow-[0_0_15px_rgba(0,0,0,0.1)]">Reset Filters</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script type="module">
+        import { initApp, createProductCard } from '/js/app.js';
+        import products from '/js/products.js';
+
+        document.addEventListener('DOMContentLoaded', () => {
+            initApp();
+            
+            // Get URL params
+            const urlParams = new URLSearchParams(window.location.search);
+            const initialCategory = urlParams.get('category');
+            const searchQuery = urlParams.get('search');
+            
+            if (initialCategory) {
+                document.getElementById('breadcrumb-current').textContent = initialCategory;
+            } else if (searchQuery) {
+                document.getElementById('breadcrumb-current').textContent = `Search results for "${searchQuery}"`;
+            }
+
+            // Setup filters
+            const categories = [...new Set(products.map(p => p.category))];
+            const brands = [...new Set(products.map(p => p.brand))].sort();
+            
+            const categoryContainer = document.getElementById('filter-category');
+            categories.forEach(cat => {
+                const checked = cat === initialCategory ? 'checked' : '';
+                categoryContainer.innerHTML += `
+                    <label class="flex items-center gap-3 cursor-pointer group">
+                        <input type="checkbox" value="${cat}" class="filter-category-checkbox w-5 h-5 text-accent-primary bg-primary-bg rounded border-border-subtle focus:ring-accent-primary focus:ring-offset-0 focus:ring-2 transition-all cursor-pointer" ${checked}>
+                        <span class="text-text-secondary group-hover:text-accent-primary transition font-medium">${cat}</span>
+                    </label>
+                `;
+            });
+            
+            const brandContainer = document.getElementById('filter-brand');
+            brands.forEach(brand => {
+                brandContainer.innerHTML += `
+                    <label class="flex items-center gap-3 cursor-pointer group">
+                        <input type="checkbox" value="${brand}" class="filter-brand-checkbox w-5 h-5 text-accent-primary bg-primary-bg rounded border-border-subtle focus:ring-accent-primary focus:ring-offset-0 focus:ring-2 transition-all cursor-pointer">
+                        <span class="text-text-secondary group-hover:text-accent-primary transition font-medium">${brand}</span>
+                    </label>
+                `;
+            });
+
+            // Filtering logic
+            const renderProducts = () => {
+                const grid = document.getElementById('products-grid');
+                const noResults = document.getElementById('no-results');
+                grid.innerHTML = '';
+                
+                // Get active filters
+                const selectedCats = Array.from(document.querySelectorAll('.filter-category-checkbox:checked')).map(cb => cb.value);
+                const selectedBrands = Array.from(document.querySelectorAll('.filter-brand-checkbox:checked')).map(cb => cb.value);
+                const minPrice = parseFloat(document.getElementById('min-price').value) || 0;
+                const maxPrice = parseFloat(document.getElementById('max-price').value) || Infinity;
+                const sort = document.getElementById('sort-select').value;
+                
+                // Apply filters
+                let filtered = products.filter(p => {
+                    let matches = true;
+                    if (selectedCats.length > 0 && !selectedCats.includes(p.category)) matches = false;
+                    if (selectedBrands.length > 0 && !selectedBrands.includes(p.brand)) matches = false;
+                    if (p.price < minPrice || p.price > maxPrice) matches = false;
+                    
+                    // Apply text search
+                    if (searchQuery) {
+                        const s = searchQuery.toLowerCase();
+                        if (!p.name.toLowerCase().includes(s) && 
+                            !p.brand.toLowerCase().includes(s) && 
+                            !p.category.toLowerCase().includes(s)) {
+                            matches = false;
+                        }
+                    }
+                    
+                    return matches;
+                });
+                
+                // Apply sorting
+                if (sort === 'price-low') filtered.sort((a, b) => a.price - b.price);
+                else if (sort === 'price-high') filtered.sort((a, b) => b.price - a.price);
+                else if (sort === 'rating') filtered.sort((a, b) => b.rating - a.rating);
+                else if (sort === 'discount') filtered.sort((a, b) => b.discount - a.discount);
+                
+                // Render
+                document.getElementById('results-count').textContent = filtered.length;
+                
+                if (filtered.length === 0) {
+                    grid.classList.add('hidden');
+                    noResults.classList.remove('hidden');
+                } else {
+                    grid.classList.remove('hidden');
+                    noResults.classList.add('hidden');
+                    filtered.forEach(p => {
+                        grid.appendChild(createProductCard(p));
+                    });
+                }
+            };
+            
+            // Event listeners
+            document.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+                cb.addEventListener('change', renderProducts);
+            });
+            document.getElementById('sort-select').addEventListener('change', renderProducts);
+            document.getElementById('apply-price-btn').addEventListener('click', renderProducts);
+            
+            document.getElementById('clear-filters-btn').addEventListener('click', () => {
+                document.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
+                document.getElementById('min-price').value = '';
+                document.getElementById('max-price').value = '';
+                document.getElementById('sort-select').value = 'featured';
+                renderProducts();
+            });
+            
+            document.getElementById('reset-search-btn').addEventListener('click', () => {
+                window.location.href = 'products.html';
+            });
+            
+            // Initial render
+            renderProducts();
+        });
+    </script>
+</body>
+</html>

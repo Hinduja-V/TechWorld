@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | TechWorld</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/src/index.css">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="bg-primary-bg text-text-main antialiased selection:bg-accent-primary selection:text-primary-bg flex flex-col min-h-screen">
+
+    <main class="flex-1 flex items-center justify-center py-12 px-4 relative">
+        <div class="absolute inset-0 overflow-hidden pointer-events-none">
+            <div class="absolute top-[-10%] right-[-5%] w-[400px] h-[400px] rounded-full bg-accent-primary/10 blur-[100px]"></div>
+            <div class="absolute bottom-[-10%] left-[-10%] w-[400px] h-[400px] rounded-full bg-accent-secondary/10 blur-[100px]"></div>
+        </div>
+
+        <div class="bg-card-bg p-8 md:p-12 rounded-3xl shadow-xl border border-border-subtle w-full max-w-md relative z-10">
+            <div class="text-center mb-10">
+                <a href="index.html" class="inline-flex items-center gap-2 text-2xl font-bold text-text-main mb-8">
+                    <div class="w-8 h-8 rounded-lg bg-accent-primary flex items-center justify-center text-primary-bg">
+                        <i class="fa-solid fa-bolt"></i>
+                    </div>
+                    TechWorld
+                </a>
+                <h1 class="text-2xl font-bold text-text-main mb-2 ">Welcome Back</h1>
+                <p class="text-text-secondary text-sm">Please authenticate to continue</p>
+            </div>
+            
+            <form id="login-form" class="space-y-6">
+                <div>
+                    <label class="block text-xs font-bold text-text-secondary mb-2 uppercase ">Email Address</label>
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-text-secondary">
+                            <i class="fa-regular fa-envelope"></i>
+                        </div>
+                        <input type="email" id="email" required value="demo@techworld.com" class="w-full bg-secondary-bg border border-border-subtle text-text-main rounded-xl pl-11 pr-4 py-3 focus:outline-none focus:border-accent-primary focus:ring-1 focus:ring-accent-primary transition-all shadow-inner">
+                    </div>
+                </div>
+                
+                <div>
+                    <div class="flex justify-between items-center mb-2">
+                        <label class="block text-xs font-bold text-text-secondary uppercase ">Password</label>
+                        <a href="#" class="text-xs text-accent-primary hover:text-accent-secondary transition">Forgot password?</a>
+                    </div>
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-text-secondary">
+                            <i class="fa-solid fa-lock"></i>
+                        </div>
+                        <input type="password" id="password" required value="password123" class="w-full bg-secondary-bg border border-border-subtle text-text-main rounded-xl pl-11 pr-4 py-3 focus:outline-none focus:border-accent-primary focus:ring-1 focus:ring-accent-primary transition-all shadow-inner">
+                    </div>
+                </div>
+                
+                <div class="flex items-center">
+                    <input type="checkbox" id="remember" class="h-4 w-4 text-accent-primary focus:ring-accent-primary bg-primary-bg border-border-subtle rounded cursor-pointer focus:ring-offset-0">
+                    <label for="remember" class="ml-2 block text-sm text-text-secondary cursor-pointer">
+                        Remember me
+                    </label>
+                </div>
+                
+                <button type="submit" class="w-full bg-text-main text-primary-bg py-4 rounded-xl font-bold hover:scale-105 transition-transform shadow-[0_0_15px_rgba(0,0,0,0.1)]">
+                    Authenticate
+                </button>
+            </form>
+            
+            <div class="mt-8 flex items-center justify-between text-sm text-text-secondary">
+                <hr class="w-full border-border-subtle">
+                <span class="px-4 text-xs font-bold uppercase  bg-card-bg">OR</span>
+                <hr class="w-full border-border-subtle">
+            </div>
+            
+            <div class="mt-8 space-y-4">
+                <a href="index.html" class="block w-full text-center bg-secondary-bg border border-border-subtle text-text-main py-4 rounded-xl font-medium hover:bg-border-subtle transition">
+                    Continue as Guest
+                </a>
+            </div>
+            
+            <p class="mt-10 text-center text-sm text-text-secondary">
+                Don't have an account? <a href="register.html" class="text-accent-primary font-bold hover:text-accent-secondary transition">Register</a>
+            </p>
+        </div>
+    </main>
+
+    <script type="module">
+        import { saveUser, showToast, getUser } from '/js/app.js';
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            // Check if already logged in
+            if (getUser()) {
+                window.location.href = 'account.html';
+            }
+            
+            document.getElementById('login-form').addEventListener('submit', (e) => {
+                e.preventDefault();
+                const email = document.getElementById('email').value;
+                const password = document.getElementById('password').value;
+                
+                if (email && password) {
+                    // Simulate login
+                    const users = JSON.parse(localStorage.getItem('techworld_users')) || [];
+                    const user = users.find(u => u.email === email && u.password === password);
+                    
+                    if (user || (email === 'demo@techworld.com' && password === 'password123')) {
+                        const userData = user || {
+                            name: 'Demo User',
+                            email: 'demo@techworld.com',
+                            phone: '9876543210'
+                        };
+                        saveUser(userData);
+                        showToast('Login successful!', 'success');
+                        setTimeout(() => {
+                            window.location.href = 'account.html';
+                        }, 1000);
+                    } else {
+                        showToast('Invalid email or password', 'error');
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
