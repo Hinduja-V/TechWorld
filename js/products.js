@@ -97,9 +97,9 @@ const products = [
         reviewCount: 421,
         stock: 30,
         stockStatus: "In Stock",
-        image: "https://images.unsplash.com/photo-1678911820864-e2c5ce757917?q=80&w=600&auto=format&fit=crop",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROMqkeXt_6GYnb_yQs8dGRuS6IJMybfgsxj3qsiwncMmrD3ZX4X7urlVA&s=10",
         images: [
-            "https://images.unsplash.com/photo-1678911820864-e2c5ce757917?q=80&w=600&auto=format&fit=crop"
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROMqkeXt_6GYnb_yQs8dGRuS6IJMybfgsxj3qsiwncMmrD3ZX4X7urlVA&s=10"
         ],
         description: "The OnePlus 12 balances powerful hardware with optimized software for a smooth, fast, and stable experience.",
         specifications: {
@@ -321,9 +321,9 @@ const products = [
         reviewCount: 890,
         stock: 0,
         stockStatus: "Out of Stock",
-        image: "https://images.unsplash.com/photo-1586816879360-004f5b0c51e3?q=80&w=600&auto=format&fit=crop",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQatuAWhy7FLS3ZftBI2IShWxmuDINrEFdDG2gtBnmIaJx8bQXBGflZocY&s=10",
         images: [
-            "https://images.unsplash.com/photo-1586816879360-004f5b0c51e3?q=80&w=600&auto=format&fit=crop"
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQatuAWhy7FLS3ZftBI2IShWxmuDINrEFdDG2gtBnmIaJx8bQXBGflZocY&s=10"
         ],
         description: "Meet MX Master 3S – an iconic mouse remastered. Feel every moment of your workflow with even more precision, tactility, and performance, thanks to Quiet Clicks and an 8,000 DPI track-on-glass sensor.",
         specifications: {
@@ -349,9 +349,9 @@ const products = [
         reviewCount: 312,
         stock: 10,
         stockStatus: "In Stock",
-        image: "https://images.unsplash.com/photo-1627844642677-983df997e3f8?q=80&w=600&auto=format&fit=crop",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCGOPuWbNZG5eSLiIo5bwzcXB8iaecM48YaBZgc-5vug&s=10",
         images: [
-            "https://images.unsplash.com/photo-1627844642677-983df997e3f8?q=80&w=600&auto=format&fit=crop"
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCGOPuWbNZG5eSLiIo5bwzcXB8iaecM48YaBZgc-5vug&s=10"
         ],
         description: "The ultimate 7.6-inch Main Display unfolds to deliver immersive gaming, cinematic viewing, and PC-like productivity.",
         specifications: {
@@ -545,9 +545,9 @@ const products = [
         reviewCount: 1450,
         stock: 80,
         stockStatus: "In Stock",
-        image: "https://images.unsplash.com/photo-1586942918801-44ee039a0669?q=80&w=600&auto=format&fit=crop",
+        image: "https://spigen.in/cdn/shop/files/1_b06a25d6-1c9d-46fd-98b2-9ae3bc341d40.jpg?v=1756704788",
         images: [
-            "https://images.unsplash.com/photo-1586942918801-44ee039a0669?q=80&w=600&auto=format&fit=crop"
+            "https://spigen.in/cdn/shop/files/1_b06a25d6-1c9d-46fd-98b2-9ae3bc341d40.jpg?v=1756704788"
         ],
         description: "Experience hybrid technology that packs advanced drop protection in a single layer. The Ultra Hybrid combines a shock-absorbing flexible bumper with a rigid back to maximize defensive features.",
         specifications: {
@@ -601,9 +601,9 @@ const products = [
         reviewCount: 184,
         stock: 16,
         stockStatus: "In Stock",
-        image: "https://images.unsplash.com/photo-1589128564115-b77054f767cd?q=80&w=600&auto=format&fit=crop",
+        image: "https://i5.walmartimages.com/seo/Google-Pixel-Tablet-11-128GB-with-Charging-Speaker-Dock-Hazel_3345f78e-4080-4fd4-b913-86e4a84d530b.e75cb6f0c94d4e8befbeb70ab4576fc2.jpeg",
         images: [
-            "https://images.unsplash.com/photo-1589128564115-b77054f767cd?q=80&w=600&auto=format&fit=crop"
+            "https://i5.walmartimages.com/seo/Google-Pixel-Tablet-11-128GB-with-Charging-Speaker-Dock-Hazel_3345f78e-4080-4fd4-b913-86e4a84d530b.e75cb6f0c94d4e8befbeb70ab4576fc2.jpeg"
         ],
         description: "The Pixel Tablet is engineered by Google to be helpful at home and on the go. It includes a Charging Speaker Dock.",
         specifications: {
@@ -657,9 +657,9 @@ const products = [
         reviewCount: 234,
         stock: 12,
         stockStatus: "In Stock",
-        image: "https://images.unsplash.com/photo-1622445275463-afa2ab738c34?q=80&w=600&auto=format&fit=crop",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRiVR55e0xdJwIr4tXQsIytJi_16MJagusbkGwMPuQRkw&s=10",
         images: [
-            "https://images.unsplash.com/photo-1622445275463-afa2ab738c34?q=80&w=600&auto=format&fit=crop"
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRiVR55e0xdJwIr4tXQsIytJi_16MJagusbkGwMPuQRkw&s=10"
         ],
         description: "Charge your Apple devices faster with this beautifully designed charging stand featuring MagSafe.",
         specifications: {
